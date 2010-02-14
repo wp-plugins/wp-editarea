@@ -5,7 +5,7 @@ Plugin URI: http://takien.com/606/wp-editarea-wordpress-plugin.php
 Description: Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 Author: Takien
 Author URI: http://takien.com
-Version: 0.1
+Version: 0.2
 */
 
 add_action('admin_init', 'wp_editarea_register_setting'); 
@@ -31,7 +31,7 @@ $wp_editarea_options = Array(
 		'allow_toggle' 		=> 'true,false',
 		'word_wrap' 		=> 'true,false',
 		'language' 			=> 'en,bg,cs,de,dk,eo,es,fi,fr,hr,id,it,ja,mk,nl,pl,pt,ru,sk,zh',
-		'display' 			=> 'later,onload'
+		'display' 			=> 'onload,later'
 		);
 
 function detect_page() {
@@ -174,9 +174,9 @@ echo '<script src="'.WP_PLUGIN_URL.'/wp-editarea/editarea/edit_area_full.js" typ
 		id: "newcontent"	
 		,start_highlight: <?php echo get_option('wp_editarea_start_highlight'); ?>	
 		,allow_toggle: <?php echo get_option('wp_editarea_allow_toggle'); ?>
-		,toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, |, help"
+		,toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, |, word_wrap, help"
 		,syntax_selection_allow: "css,html,js,php,xml"
-		,word_wrap: <?php echo get_option('wp_editarea_allow_toggle'); ?>
+		,word_wrap: <?php echo get_option('wp_editarea_word_wrap'); ?>
 		,language: "<?php echo get_option('wp_editarea_language'); ?>"
 		,syntax: "<?php echo file_to_edit();?>" //css etc
 		,display: "<?php echo get_option('wp_editarea_display'); ?>" //later
