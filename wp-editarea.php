@@ -158,7 +158,7 @@ if ($pos === false) {
 <li><strong>Display</strong>: <em>Onload</em>: Turn on highlighting immediately on page load, <em>Later</em>: You have to turn it on from the bottom of the textarea (<em>Allow toggle</em> must be true).</li>
 </ol>
 <hr />
-<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.1</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
+<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.2</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
 </p>
 </div>
 <?php
