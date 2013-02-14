@@ -5,8 +5,10 @@ Plugin URI: http://takien.com/606/wp-editarea-wordpress-plugin.php
 Description: Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 Author: Takien
 Author URI: http://takien.com
-Version: 0.2
+Version: 0.3
 */
+
+defined('ABSPATH') or die();
 
 add_action('admin_init', 'wp_editarea_register_setting'); 
 add_action('admin_menu', 'wp_editarea_add_page');
@@ -51,15 +53,14 @@ function detect_page() {
 
 function file_to_edit() {
 	$allowfile = Array('css','html','js','php','xml');
-	
-	if($_GET['file']) {
-		$file 	= $_GET['file'];
+	$file = isset($_GET['file']) ? $_GET['file'] : false;
+	if($file) {
 		$ext 	= end(explode('.',$file));
 		if(in_array($ext,$allowfile)) {
 		$return = $ext;
 		}
 	}
-	if((detect_page() == 'theme-editor.php') && (!$_GET['file'])) {
+	if((detect_page() == 'theme-editor.php') && (!$file)) {
 		$return = 'css';
 	}
 	else {
@@ -92,7 +93,7 @@ global $wp_editarea_options;
 <p>Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor.</p>
 
 <form method="post" action="options.php">
-<table class="widefat"width="100%">
+<table class="widefat" width="100%">
 <thead>
 <tr><th width="300">Setting</th><th>Preview</th></tr>
 </thead>
@@ -129,22 +130,8 @@ echo 'wp_editarea_'.$key.',';
 </td>
 <td>
 <textarea style="width:100%" cols="70" rows="18" name="newcontent" id="newcontent" tabindex="1">
-&lt;?php
-//I hate using strpos();
-
-$mystring = 'abc';
-$findme   = 'a';
-$pos = strpos($mystring, $findme);
-
-// Note our use of ===.  Simply == would not work as expected
-// because the position of 'a' was the 0th (first) character.
-if ($pos === false) {
-    echo "The string '$findme' was not found in the string '$mystring'";
-} else {
-    echo "The string '$findme' was found in the string '$mystring'";
-    echo " and exists at position $pos";
-}
-?&gt;</textarea>
+<?php echo esc_textarea(file_get_contents(__FILE__));?>
+</textarea>
 </td>
 </tr>
 </table>
@@ -158,7 +145,7 @@ if ($pos === false) {
 <li><strong>Display</strong>: <em>Onload</em>: Turn on highlighting immediately on page load, <em>Later</em>: You have to turn it on from the bottom of the textarea (<em>Allow toggle</em> must be true).</li>
 </ol>
 <hr />
-<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.2</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
+<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.3</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
 </p>
 </div>
 <?php
