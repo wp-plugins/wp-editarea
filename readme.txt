@@ -3,8 +3,8 @@ Contributors: takien
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BL7ERUY46HPL8&lc=ID&item_name=WP-Editarea%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: wp-admin,dashboard,code highlight,source code,editor,syntax highlight,codepress,code editor,highlight,admin
 Requires at least: 2.9
-Tested up to: 2.9.1
-Stable tag: 0.2
+Tested up to: 3.5.1
+Stable tag: 0.3
 
 Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 
@@ -52,6 +52,10 @@ Nothing
 2. Your new theme editor :D
 
 == Changelog ==
+
+= 0.3 = 
+* Confirmed works with WordPress 3.5.1
+* Fixed notice error when WP_DEBUG set to true
 
 = 0.2 =
 * Bug fixed: toggle word wrap option not work (reported by pattrick, http://takien.com/606#comment-1286)
