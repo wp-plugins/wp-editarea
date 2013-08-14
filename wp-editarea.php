@@ -5,7 +5,7 @@ Plugin URI: http://takien.com/606/wp-editarea-wordpress-plugin.php
 Description: Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 Author: Takien
 Author URI: http://takien.com
-Version: 0.3
+Version: 0.4
 */
 
 defined('ABSPATH') or die();
@@ -14,7 +14,7 @@ add_action('admin_init', 'wp_editarea_register_setting');
 add_action('admin_menu', 'wp_editarea_add_page');
 
 if(get_option('wp_editarea_enable') == 'yes') {
-	if(detect_page()) {
+	if(wp_editarea_detect_page()) {
 		add_action('admin_footer','wp_editarea');
 	}
 }
@@ -36,7 +36,7 @@ $wp_editarea_options = Array(
 		'display' 			=> 'onload,later'
 		);
 
-function detect_page() {
+function wp_editarea_detect_page() {
 	$allowpage 	= Array('plugin-editor.php','theme-editor.php','options-general.php?page=wp-editarea');
 	
 	$page 		= $_SERVER["REQUEST_URI"];
@@ -51,7 +51,7 @@ function detect_page() {
 	}
 }
 
-function file_to_edit() {
+function wp_editarea_file_to_edit() {
 	$allowfile = Array('css','html','js','php','xml');
 	$file = isset($_GET['file']) ? $_GET['file'] : false;
 	if($file) {
@@ -60,7 +60,7 @@ function file_to_edit() {
 		$return = $ext;
 		}
 	}
-	if((detect_page() == 'theme-editor.php') && (!$file)) {
+	if((wp_editarea_detect_page() == 'theme-editor.php') && (!$file)) {
 		$return = 'css';
 	}
 	else {
@@ -80,7 +80,7 @@ global $wp_editarea_options;
 
 //add page
 function wp_editarea_add_page() {
-    add_options_page('WP Editarea', 'WP Editarea', 8, 'wp-editarea', 'wp_editarea_page');
+    add_options_page('WP Editarea', 'WP Editarea', 'edit_themes', 'wp-editarea', 'wp_editarea_page');
 }
 
 //the page
@@ -145,7 +145,7 @@ echo 'wp_editarea_'.$key.',';
 <li><strong>Display</strong>: <em>Onload</em>: Turn on highlighting immediately on page load, <em>Later</em>: You have to turn it on from the bottom of the textarea (<em>Allow toggle</em> must be true).</li>
 </ol>
 <hr />
-<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.3</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
+<p><a target="_blank" title="Plugin homepage" href="http://takien.com">WP Editarea 0.4</a> powered by <a href="http://www.cdolivet.com/index.php?page=editArea" target="_blank" title="Editarea homepage">Editarea 0.8.2</a> &copy; Christophe Dolivet 2007-2010
 </p>
 </div>
 <?php
@@ -165,7 +165,7 @@ echo '<script src="'.WP_PLUGIN_URL.'/wp-editarea/editarea/edit_area_full.js" typ
 		,syntax_selection_allow: "css,html,js,php,xml"
 		,word_wrap: <?php echo get_option('wp_editarea_word_wrap'); ?>
 		,language: "<?php echo get_option('wp_editarea_language'); ?>"
-		,syntax: "<?php echo file_to_edit();?>" //css etc
+		,syntax: "<?php echo wp_editarea_file_to_edit();?>" //css etc
 		,display: "<?php echo get_option('wp_editarea_display'); ?>" //later
 		
 		});

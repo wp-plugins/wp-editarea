@@ -1,10 +1,10 @@
 === WP Editarea ===
 Contributors: takien
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BL7ERUY46HPL8&lc=ID&item_name=WP-Editarea%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
+Donate link: https://takien.com/donate
 Tags: wp-admin,dashboard,code highlight,source code,editor,syntax highlight,codepress,code editor,highlight,admin
 Requires at least: 2.9
-Tested up to: 3.5.1
-Stable tag: 0.3
+Tested up to: 3.6
+Stable tag: 0.4
 
 Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 
@@ -12,7 +12,7 @@ Turn your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme ed
 
 WP Editarea turns your Oldschool textarea code editor in Wordpress Dashboard (plugin/theme editor) into a fancy realtime highlighted code editor using <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea</a>.
 
-= Plugin Feature =
+= Plugin Features =
 
 * Automatically detect syntax language
 * Live preview in plugin option page
@@ -20,7 +20,7 @@ WP Editarea turns your Oldschool textarea code editor in Wordpress Dashboard (pl
 * Easy integration, no file to edit
 * Easy to use configuration page
 
-= Editarea Feature =
+= Editarea Features =
 * Multi language interface
 * Bracket matching highlight
 * Support many syntax
@@ -31,7 +31,7 @@ WP Editarea turns your Oldschool textarea code editor in Wordpress Dashboard (pl
 * More at <a target="_blank" href="http://www.cdolivet.com/index.php?page=editArea" title="EditArea, a free javascript editor for source code">Editarea homepage</a>.
 
 = Browser Compatibility =
-* IE 6 & 7 & 8, Firefox 1.5 & 2 & 3, Safari 3.x & 4, Opera 9, 9.5, 9.6 and Chrome 1 & 2[2]
+* IE 6 & 7 & 8, Firefox 1.5 & 2 & 3, Safari 3.x & 4, Opera 9, 9.5, 9.6 and Chrome 1 & 2[2] and mostly all modern browsers.
 
 
 == Installation ==
@@ -52,6 +52,10 @@ Nothing
 2. Your new theme editor :D
 
 == Changelog ==
+
+= 0.4 = 
+* Confirmed works with WordPress 3.6
+* Small code changes
 
 = 0.3 = 
 * Confirmed works with WordPress 3.5.1
